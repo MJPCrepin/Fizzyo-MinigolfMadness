@@ -8,28 +8,53 @@ using UnityEngine.SceneManagement;
 // Each level shoud have its own child LevelContent object
 public class LevelContent : MonoBehaviour {
 
-    public Rigidbody rb;
-    public Text counttxt;
+    public Text currHole;
+    public Text coinstxt;
+    public Text stroketxt;
+    public Text partxt;
     public Text wintxt;
-    private int pickupCount = 0;
-    private float countdownValue = 3;
+    private int pickupCount = -1;
+    private int currentHole = 0;
 
-    void Start()
+    public void initCounters()
     {
-        rb = GetComponent<Rigidbody>();
-        pickupCount = 0;
-        UpdateCounter();
-        wintxt.text = "";
+        UpdatePickupCounter();
+        UpdateCurrHole();
     }
 
-    private void UpdateCounter()
+    public void PickupCollected()
     {
-        counttxt.text = "Count: " + pickupCount.ToString();
-        if (pickupCount >= 4)
+        UpdatePickupCounter();
+    }
+
+    public void EndpointReached()
+    {
+        UpdateCurrHole();
+    }
+
+    public void UpdatePickupCounter()
+    {
+        pickupCount++;
+        coinstxt.text = "Count: " + pickupCount.ToString();
+    }
+
+    public int UpdateCurrHole()
+    {
+        currentHole++;
+        currHole.text = "Hole " + currentHole.ToString();
+        return currentHole;
+    }
+
+    // Pause 3 seconds before going back to menu
+    public IEnumerator BackToMainMenu(float countdownValue)
+    {
+        float currCountdownValue = countdownValue;
+        while (currCountdownValue > 0)
         {
-            wintxt.text = "WINNER!";
-            //StartCoroutine(StartCountdown(countdownValue));
+            Debug.Log("Countdown: " + currCountdownValue);
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
         }
+        SceneManager.LoadScene(0);
     }
-
 }

@@ -6,29 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
-    // Object references
     public PointerController pc;
     public Rigidbody rb;
-
-    public Text counttxt;
-    public Text wintxt;
+    public LevelContent lvl;
     public float speed = 20;
-
-    private int pickupCount = 0;
-    private float countdownValue = 3;
     private float direction = 0;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        pickupCount = 0;
-        UpdateCounter();
-        wintxt.text = "";
+        // lvl = GetComponent<LevelContent>();
 	}
 
     void FixedUpdate() // called during physics events
     {
-
         if (rb.velocity.magnitude > 1)
         {
             pc.showAsInactive();
@@ -55,45 +46,23 @@ public class PlayerController : MonoBehaviour {
             var forceDirection = new Vector3(speed * (float)Math.Sin(convertedDirection), 0.0f, speed * (float)Math.Cos(convertedDirection));
             rb.AddForce(forceDirection * speed);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        // If player collides with another object, deactivate it
-        // Collider+Regidbody = dynamic object (else static, recalc/frame -> resource intense!)
+    {   // Collider+Regidbody = dynamic object (else static, recalc/frame -> resource intense!)
         var collidedWithPickup = other.gameObject.CompareTag("Pickup");
+        var reachedEndpoint = other.gameObject.CompareTag("Finish");
 
+        // If player collides with another object, deactivate it
         if (collidedWithPickup)
         {
             other.gameObject.SetActive(false);
-            pickupCount++;
-            UpdateCounter();
+            lvl.PickupCollected();
         }
 
-    }
-
-    private void UpdateCounter()
-    {
-        counttxt.text = "Count: " + pickupCount.ToString();
-        if (pickupCount >= 4)
+        if(reachedEndpoint)
         {
-            wintxt.text = "WINNER!";
-            StartCoroutine(StartCountdown(countdownValue));
+            lvl.EndpointReached();
         }
     }
-    
-    // Pause 3 seconds before going back to menu
-    public IEnumerator StartCountdown(float countdownValue)
-    {
-        float currCountdownValue = countdownValue;
-        while (currCountdownValue > 0)
-        {
-            Debug.Log("Countdown: " + currCountdownValue);
-            yield return new WaitForSeconds(1.0f);
-            currCountdownValue--;
-        }
-        SceneManager.LoadScene(0);
-    }
-
 }
