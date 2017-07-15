@@ -76,8 +76,11 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Poly2Tri">
-      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\Poly2Tri.dll</HintPath>
+    <Reference Include="ProBuilderCore-Unity5">
+      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
@@ -85,19 +88,17 @@
     <Reference Include="pb_Stl">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\pb_Stl.dll</HintPath>
     </Reference>
-    <Reference Include="ProBuilderCore-Unity5">
-      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
+    <Reference Include="Poly2Tri">
+      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\Poly2Tri.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scenes\Levels\TutorialContent.cs" />
+    <Compile Include="Assets\Scenes\Levels\Tutorial.cs" />
     <Compile Include="Assets\Scenes\Menus\HomePageNavigation.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PointerController.cs" />
+    <Compile Include="Assets\Scripts\LevelContent.cs" />
     <Compile Include="Assets\Scripts\Rotators\EndpointRotator.cs" />
     <Compile Include="Assets\Scripts\Rotators\ObstacleRotator.cs" />
     <Compile Include="Assets\Scripts\Rotators\PickupRotator.cs" />
