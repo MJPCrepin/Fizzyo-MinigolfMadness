@@ -1,26 +1,24 @@
-﻿using System.Collections;
-using System;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     public PointerController pc;
     public Rigidbody rb;
     public LevelContent lvl;
+    public bool isAtEndpoint = false;
     public float speed = 20;
     private float direction = 0;
+    private double thresholdSpeed = 1;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        // lvl = GetComponent<LevelContent>();
 	}
 
     void FixedUpdate() // called during physics events
     {
-        if (rb.velocity.magnitude > 1)
+        if (rb.velocity.magnitude > thresholdSpeed)
         {
             pc.showAsInactive();
             pc.stopRotating();
@@ -62,7 +60,11 @@ public class PlayerController : MonoBehaviour {
 
         if(reachedEndpoint)
         {
-            lvl.EndpointReached();
+            isAtEndpoint = true;
+        }
+        else
+        {
+            isAtEndpoint = false;
         }
     }
 }

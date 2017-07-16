@@ -8,13 +8,15 @@ using UnityEngine.SceneManagement;
 // Each level shoud have its own child LevelContent object
 public class LevelContent : MonoBehaviour {
 
+    public PlayerController player;
     public Text currHole;
     public Text coinstxt;
     public Text stroketxt;
     public Text partxt;
     public Text wintxt;
     private int pickupCount = -1;
-    private int currentHole = 0;
+    public int currentHole = 0;
+    public int finalHole;
 
     public void initCounters()
     {
@@ -25,11 +27,6 @@ public class LevelContent : MonoBehaviour {
     public void PickupCollected()
     {
         UpdatePickupCounter();
-    }
-
-    public void EndpointReached()
-    {
-        UpdateCurrHole();
     }
 
     public void UpdatePickupCounter()
@@ -43,6 +40,11 @@ public class LevelContent : MonoBehaviour {
         currentHole++;
         currHole.text = "Hole " + currentHole.ToString();
         return currentHole;
+    }
+
+    public void EndpointReached()
+    {
+        StartCoroutine(BackToMainMenu(0.3f));
     }
 
     // Pause 3 seconds before going back to menu
