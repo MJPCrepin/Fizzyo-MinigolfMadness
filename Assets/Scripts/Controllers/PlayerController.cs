@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour {
     public float speed = 20;
     private float direction = 0;
     private double thresholdSpeed = 1;
+    private int breathCount = 0;
+
+    //Values used for breath counter emulation
+    private bool breathStarted = false;
+    private bool breathEnded = false;
 
     void Start ()
     {
@@ -47,6 +52,9 @@ public class PlayerController : MonoBehaviour {
             var forceDirection = new Vector3(speed * (float)Math.Sin(convertedDirection), 0.0f, speed * (float)Math.Cos(convertedDirection));
             rb.AddForce(forceDirection * speed);
         }
+
+        // Doesn't work
+        IncrementBreathCounter();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,4 +78,44 @@ public class PlayerController : MonoBehaviour {
             isAtEndpoint = false;
         }
     }
+
+    public void CancelMomentum()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    // Second method to be subscribed to a breath counter
+    public void IncrementBreathCounter() //Simulator not working
+    {
+        if (UserInput.isExhaling()==true)
+        {
+            breathStarted = true;
+        }
+        if (UserInput.isExhaling()!=true)
+        {
+            breathEnded = true;
+        }
+        if (breathStarted == true && breathEnded == true)
+        {
+            breathCount++;
+            breathStarted = false;
+            breathEnded = false;
+        }
+    }
+    private void IncrementBreathCounter(object sender, EventArgs args)
+    {
+        UserInput.getBreathCount();
+    }
+
+    public void ResetBreathCounter()
+    {
+        breathCount = 0;
+    }
+
+    public int GetBreathCount()
+    {
+        return breathCount;
+    }
+
 }

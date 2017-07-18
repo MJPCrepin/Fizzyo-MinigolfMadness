@@ -20,4 +20,9 @@ public static class UserInput {
         return true;
     }
 
+    public static int getBreathCount()
+    {
+        return 10;
+    }
+
 }
