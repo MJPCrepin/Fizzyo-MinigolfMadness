@@ -94,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scenes\Levels\Tutorial.cs" />
-    <Compile Include="Assets\Scenes\Menus\HomePageNavigation.cs" />
+    <Compile Include="Assets\Scenes\Menus\HomePage.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PointerController.cs" />

@@ -17,6 +17,8 @@ public class LevelContent : MonoBehaviour {
     private int pickupCount = -1;
     public int currentHole = 0;
     public int finalHole;
+    private float timeBeforeNextLevel = 1f;
+    private float timeBeforeMainMenu = 3f;
 
     public void initCounters()
     {
@@ -44,13 +46,13 @@ public class LevelContent : MonoBehaviour {
 
     public void EndpointReached()
     {
-        StartCoroutine(BackToMainMenu(0.3f));
+        StartCoroutine(BackToMainMenu());
     }
 
     // Pause 3 seconds before going back to menu
-    public IEnumerator BackToMainMenu(float countdownValue)
+    public IEnumerator BackToMainMenu()
     {
-        float currCountdownValue = countdownValue;
+        float currCountdownValue = timeBeforeMainMenu;
         while (currCountdownValue > 0)
         {
             Debug.Log("Countdown: " + currCountdownValue);
@@ -59,4 +61,10 @@ public class LevelContent : MonoBehaviour {
         }
         SceneManager.LoadScene(0);
     }
+
+    public void SetNewPosition(float x, float y, float z)
+    {
+        player.transform.position = new UnityEngine.Vector3(x, y, z);
+    }
+
 }

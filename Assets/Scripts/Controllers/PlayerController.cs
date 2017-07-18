@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public PointerController pc;
+    public CameraController cc;
     public Rigidbody rb;
     public LevelContent lvl;
     public bool isAtEndpoint = false;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour {
         {
             pc.showAsInactive();
             pc.stopRotating();
+            cc.UpdateDirection();
         }
         else
         {
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 pc.stopRotating();
+                cc.UpdateDirection();
             }
         }
 
