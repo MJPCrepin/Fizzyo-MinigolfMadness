@@ -10,9 +10,10 @@ public class HomePage : MonoBehaviour {
     public RectTransform menuContainer;
     public Transform levelPanel;
 
-    public Transform colourScroll;
-    public Transform trailScroll;
-    public Transform hatScroll;
+    public Transform colourScrollview;
+    public Transform hatScrollview;
+    public Transform trailScrollview;
+
 
     private CanvasGroup fadeGroup;
     private float fadeInSpeed = 2f;
@@ -36,32 +37,35 @@ public class HomePage : MonoBehaviour {
 
     private void InitShop()
     {
-        if (colourScroll == null || trailScroll == null || hatScroll == null)
+        if (colourScrollview == null || trailScrollview == null || hatScrollview == null)
             Debug.Log("Shop scroll ref missing");
 
         int i = 0;
-        foreach (Transform shopItem in colourScroll)
+        foreach (Transform shopItem in colourScrollview)
         {
             int currentIndex = i;
             Button b = shopItem.GetComponent<Button>();
+            Debug.Log("Colour selected: " + currentIndex);
             b.onClick.AddListener(() => OnColourSelect(currentIndex));
             i++;
         }
 
         i = 0;
-        foreach (Transform shopItem in trailScroll)
+        foreach (Transform shopItem in trailScrollview)
         {
             int currentIndex = i;
             Button b = shopItem.GetComponent<Button>();
+            Debug.Log("Trail selected: " + currentIndex);
             b.onClick.AddListener(() => OnTrailSelect(currentIndex));
             i++;
         }
 
         i = 0;
-        foreach (Transform shopItem in hatScroll)
+        foreach (Transform shopItem in hatScrollview)
         {
             int currentIndex = i;
             Button b = shopItem.GetComponent<Button>();
+            Debug.Log("Hat selected: " + currentIndex);
             b.onClick.AddListener(() => OnHatSelect(currentIndex));
             i++;
         }
@@ -70,7 +74,7 @@ public class HomePage : MonoBehaviour {
     private void InitLevel()
     {
         if (levelPanel == null)
-            Debug.Log("Shop scroll ref missing");
+            Debug.Log("lvlPanel ref missing");
 
         int i = 0;
         foreach (Transform level in levelPanel)
@@ -84,7 +88,12 @@ public class HomePage : MonoBehaviour {
 
     private void OnLevelSelect(int currentIndex)
     {
-        Debug.Log("Level selected: " + currentIndex);
+        switch (currentIndex)
+        {
+            case 0: SceneManager.LoadScene(1); break;
+            default: Debug.Log("Level selected: " + currentIndex); break;
+        }
+        
     }
 
     private void OnColourSelect(int currentIndex)
@@ -118,12 +127,12 @@ public class HomePage : MonoBehaviour {
     }
 
     //Menu transitions
-    public void OnBackClick()
+    public void GoBackToMainMenu()
     {
         NavigateTo(0);
     }
 
-    public void LevelSelect()
+    public void GoToLevelSelect()
     {
         NavigateTo(1);
     }
