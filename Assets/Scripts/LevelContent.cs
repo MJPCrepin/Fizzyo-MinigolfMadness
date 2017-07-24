@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -17,27 +16,24 @@ public class LevelContent : MonoBehaviour {
     private int pickupCount = -1;
 
     public Text stroketxt;
-    public int breathCount;
+    private int strokeCount = -1;
 
     public Text partxt;
+    private int parNumber { get; set; }
 
+    public GameObject popup;
     public Text wintxt;
-    public int finalHole;
 
-    private float timeBeforeNextLevel = 1f;
-    private float timeBeforeMainMenu = 3f;
-
-    private void Update()
-    {
-        breathCount=player.GetBreathCount();
-        UpdateBreathCount();
+    public void OnMouseUpAsButton()
+    { // DOESN'T BLOODY WORK
+        UpdateStrokeCount();
     }
 
     public void initCounters()
     {
         UpdatePickupCounter();
         UpdateCurrHole();
-        UpdateBreathCount();
+        UpdateStrokeCount();
     }
 
     public void PickupCollected()
@@ -49,6 +45,7 @@ public class LevelContent : MonoBehaviour {
     {
         pickupCount++;
         coinstxt.text = "Coins: " + pickupCount.ToString();
+        Debug.Log("coin added");
     }
 
     public int UpdateCurrHole()
@@ -58,21 +55,53 @@ public class LevelContent : MonoBehaviour {
         return currentHole;
     }
 
-    public int UpdateBreathCount()
+    public int SetPar(int x)
     {
-        stroketxt.text = "Strokes: " + breathCount.ToString();
-        return breathCount;
+        parNumber = x;
+        partxt.text = "Par: " + parNumber.ToString();
+        return parNumber;
+    }
+
+    public int UpdateStrokeCount() // Needs to be linked to breath counter
+    {
+        strokeCount++;
+        stroketxt.text = "Strokes: " + strokeCount.ToString();
+        return strokeCount;
     }
 
     public void EndpointReached()
     {
-        StartCoroutine(BackToMainMenu());
+        player.isAtEndpoint = false;
+        UpdateCurrHole();
+        DisplayGolfScore();
     }
 
-    // Pause 3 seconds before going back to menu
-    public IEnumerator BackToMainMenu()
+    public void DisplayGolfScore()
     {
-        float currCountdownValue = timeBeforeMainMenu;
+        if (strokeCount == 1)
+        {
+            StartCoroutine(ShowPopup("ACE!", 1.5f));
+        }
+        else
+        {
+            switch (strokeCount - parNumber)
+            {
+                case 3: StartCoroutine(ShowPopup("Triple Bogey", 1.5f)); break;
+                case 2: StartCoroutine(ShowPopup("Double Bogey", 1.5f)); break;
+                case 1: StartCoroutine(ShowPopup("Bogey", 1.5f)); break;
+                case 0: StartCoroutine(ShowPopup("Par", 1.5f)); break;
+                case -1: StartCoroutine(ShowPopup("Birdie", 1.5f)); break;
+                case -2: StartCoroutine(ShowPopup("Eagle", 1.5f)); break;
+                case -3: StartCoroutine(ShowPopup("Albatross", 1.5f)); break;
+                case -4: StartCoroutine(ShowPopup("Condor", 1.5f)); break;
+                default: break;
+            }
+        }
+    }
+
+    public IEnumerator BackToMainMenu()
+    { // Pause 3 seconds before going back to menu
+        float currCountdownValue = 3f;
         while (currCountdownValue > 0)
         {
             Debug.Log("Countdown: " + currCountdownValue);
@@ -85,7 +114,31 @@ public class LevelContent : MonoBehaviour {
     public void SetNewPosition(float x, float y, float z)
     {
         player.CancelMomentum();
-        player.transform.position = new UnityEngine.Vector3(x, y, z);
+        player.transform.position = new Vector3(x, y, z);
+    }
+
+    public void ShowPopup(string msg)
+    {
+        popup.SetActive(true);
+        wintxt.text = msg;
+    }
+
+    public IEnumerator ShowPopup(string msg, float time)
+    { // Example: StartCoroutine(ShowPopup("Win", 3f));
+        ShowPopup(msg);
+        float currCountdownValue = time;
+        while (currCountdownValue > 0)
+        {
+            Debug.Log("Countdown: " + currCountdownValue);
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
+        }
+        HidePopup();
+    }
+
+    public void HidePopup()
+    {
+        popup.SetActive(false);
     }
 
 }

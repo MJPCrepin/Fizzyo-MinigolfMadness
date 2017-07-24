@@ -22,7 +22,7 @@ public static class UserInput {
 
     public static int getBreathCount()
     {
-        return 10;
+        return 1;
     }
 
 }
