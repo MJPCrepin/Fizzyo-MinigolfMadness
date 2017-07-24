@@ -21,12 +21,13 @@ public class LevelContent : MonoBehaviour {
     public Text partxt;
     private int parNumber { get; set; }
 
-    public GameObject popup;
     public Text wintxt;
+    public GameObject popup;
 
-    public void OnMouseUpAsButton()
-    { // DOESN'T BLOODY WORK
-        UpdateStrokeCount();
+    public void DetectBreathTrigger() // Needs to be linked to breath counter
+    {
+        if (Input.GetMouseButtonDown(0))
+            UpdateStrokeCount();
     }
 
     public void initCounters()
@@ -62,7 +63,7 @@ public class LevelContent : MonoBehaviour {
         return parNumber;
     }
 
-    public int UpdateStrokeCount() // Needs to be linked to breath counter
+    public int UpdateStrokeCount()
     {
         strokeCount++;
         stroketxt.text = "Strokes: " + strokeCount.ToString();
@@ -74,6 +75,7 @@ public class LevelContent : MonoBehaviour {
         player.isAtEndpoint = false;
         UpdateCurrHole();
         DisplayGolfScore();
+        strokeCount = 0;
     }
 
     public void DisplayGolfScore()
@@ -140,5 +142,4 @@ public class LevelContent : MonoBehaviour {
     {
         popup.SetActive(false);
     }
-
 }

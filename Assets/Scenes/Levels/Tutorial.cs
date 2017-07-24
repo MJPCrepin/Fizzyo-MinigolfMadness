@@ -11,6 +11,8 @@ public class Tutorial : LevelContent {
 
     private void Update()
     {
+        DetectBreathTrigger();
+
         if (player.isAtEndpoint)
         {
             GoToNextHole();
@@ -20,17 +22,19 @@ public class Tutorial : LevelContent {
         {
             player.direction = 0;
             player.pc.stopRotating();
-            //ShowPopup("Huff to move the ball!");
+            ShowPopup("Huff to move the ball!");
             SetPar(2);
         }
 
         if (currentHole == 2)
         {
-           // ShowPopup("Click to change direction!");
+            SetPar(3);
+            ShowPopup("Click to change direction!");
         }
 
         if (currentHole == 3)
         {
+            SetPar(3);
             ShowPopup("Pick up extra coins to spend in the shop!");
         }
 
