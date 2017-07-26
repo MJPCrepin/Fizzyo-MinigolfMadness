@@ -75,7 +75,8 @@ public class LevelContent : MonoBehaviour {
         player.isAtEndpoint = false;
         UpdateCurrHole();
         DisplayGolfScore();
-        strokeCount = 0;
+        strokeCount = -1;
+        UpdateStrokeCount();
     }
 
     public void DisplayGolfScore()
