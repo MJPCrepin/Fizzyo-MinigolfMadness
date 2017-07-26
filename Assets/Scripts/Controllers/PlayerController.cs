@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody rb;
     public LevelContent lvl;
     public bool isAtEndpoint = false;
+    public bool isInDeathzone = false;
     public float speed = 20;
     public float direction { get; set; }
     private double thresholdSpeed = 1;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour {
     {   // Collider+Regidbody = dynamic object (else static, recalc/frame -> resource intense!)
         var collidedWithPickup = other.gameObject.CompareTag("Pickup");
         var reachedEndpoint = other.gameObject.CompareTag("Finish");
+        var enteredDeathzone = other.gameObject.CompareTag("Deathzone");
 
         if (collidedWithPickup)
         {
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour {
             lvl.PickupCollected();
         }
         if (reachedEndpoint) isAtEndpoint = true; else isAtEndpoint = false;
+        if (enteredDeathzone) isInDeathzone = true; else isInDeathzone = false;
     }
 
     public void CancelMomentum()
