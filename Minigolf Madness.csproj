@@ -107,6 +107,9 @@
     <Compile Include="Assets\Scripts\Rotators\EndpointRotator.cs" />
     <Compile Include="Assets\Scripts\Rotators\ObstacleRotator.cs" />
     <Compile Include="Assets\Scripts\Rotators\PickupRotator.cs" />
+    <Compile Include="Assets\Scripts\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\SaveState.cs" />
+    <Compile Include="Assets\Scripts\Tools.cs" />
     <Compile Include="Assets\Scripts\UserInput.cs" />
     <Compile Include="Assets\_Imports\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\_Imports\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
