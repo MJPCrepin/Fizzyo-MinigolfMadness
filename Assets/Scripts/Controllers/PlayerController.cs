@@ -13,14 +13,23 @@ public class PlayerController : MonoBehaviour {
     public float speed = 20;
     public float direction { get; set; }
     private double thresholdSpeed = 1;
+     
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
         direction = 0;
-	}
 
-    void FixedUpdate() // called during physics events
+        // Set trail
+        GameObject trail = Instantiate(SaveManager.Instance.playerTrails[SaveManager.Instance.state.activeTrail] as GameObject);
+        trail.transform.SetParent(rb.transform);
+        trail.transform.localPosition = Vector3.zero;
+
+        // Set hat
+        //TODO
+    }
+
+     void FixedUpdate()
     {
         var PlayerIsMoving = rb.velocity.magnitude > thresholdSpeed;
         var ValidBreathDetected = (UserInput.isExhaling() == true && UserInput.isValidBreath() == true);

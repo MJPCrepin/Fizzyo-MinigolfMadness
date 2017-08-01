@@ -96,11 +96,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scenes\Levels\Tutorial.cs" />
-    <Compile Include="Assets\Scenes\Levels\Woods.cs" />
-    <Compile Include="Assets\Scenes\Menus\HomePage.cs" />
+    <Compile Include="Assets\Scenes\HomePage.cs" />
+    <Compile Include="Assets\Scenes\Tutorial.cs" />
+    <Compile Include="Assets\Scenes\Woods.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PlayerPreviewController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PointerController.cs" />
     <Compile Include="Assets\Scripts\LevelContent.cs" />
     <Compile Include="Assets\Scripts\Rotators\CoinRotator.cs" />

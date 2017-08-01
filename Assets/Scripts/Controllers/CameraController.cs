@@ -7,9 +7,7 @@ public class CameraController : MonoBehaviour {
 
     public GameObject player;
     public PointerController pc;
-
-    // Distance between camera and player
-    private Vector3 offset;
+    private Vector3 offset; // player-cam distance
 
 	void Start ()
     {
@@ -19,7 +17,6 @@ public class CameraController : MonoBehaviour {
 
 	public void UpdateDirection()
     {
-        //transform.position = player.transform.position + offset;
         var convertedDirection = pc.getDirection() * (float)Math.PI / 180;
         transform.rotation = Quaternion.LookRotation(new Vector3((float)Math.Sin(convertedDirection), -1f, (float)Math.Cos(convertedDirection)));
         transform.position = player.transform.position 
