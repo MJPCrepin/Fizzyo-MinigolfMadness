@@ -106,6 +106,8 @@ public class HomePage : MonoBehaviour {
             Button b = shopItem.GetComponent<Button>();
             b.onClick.AddListener(() => OnTrailSelect(currentIndex));
 
+            shopItem.GetComponentInChildren<Text>().text = "Locked";
+
             Image img = shopItem.GetComponent<Image>();
             img.color = isOwned
                 ? SaveManager.Instance.playerColours[currentIndex]
@@ -151,17 +153,6 @@ public class HomePage : MonoBehaviour {
     }
 
     // Shop buttons
-
-    private void OnLevelSelect(int currentIndex)
-    {
-        switch (currentIndex)
-        {
-            case 0: SceneManager.LoadScene(1); break;
-            case 1: SceneManager.LoadScene(2); break;
-            default: Debug.Log("Level selected: " + currentIndex); break;
-        }
-        
-    }
 
     private void OnColourSelect(int currentIndex)
     {
@@ -284,7 +275,7 @@ public class HomePage : MonoBehaviour {
             if (canPurchase)
             {
                 SetTrail(selectedTrailIndex);
-                trailScrollview.GetChild(selectedTrailIndex).GetComponent<Image>().color = Color.white;
+                trailScrollview.GetChild(selectedTrailIndex).GetComponent<Image>().color = SaveManager.Instance.playerColours[selectedTrailIndex];
                 UpdateCoinsText();
             }
             else
@@ -328,7 +319,7 @@ public class HomePage : MonoBehaviour {
         SaveManager.Instance.Save();
     }
 
-    // Menu transitions
+    // Menu navigation
 
     public void GoBackToMainMenu()
     {
@@ -338,6 +329,17 @@ public class HomePage : MonoBehaviour {
     public void GoToLevelSelect()
     {
         NavigateTo(1);
+    }
+
+    private void OnLevelSelect(int currentIndex)
+    {
+        switch (currentIndex)
+        {
+            case 0: SceneManager.LoadScene(1); break;
+            case 1: SceneManager.LoadScene(2); break;
+            default: Debug.Log("Level selected: " + currentIndex); break;
+        }
+
     }
 
     public void GoToShop()

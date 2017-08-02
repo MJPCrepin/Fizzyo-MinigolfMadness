@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public LevelContent lvl;
     public bool isAtEndpoint = false;
     public bool isInDeathzone = false;
+    public bool isSkippingHole = false;
     public float speed = 20;
     public float direction { get; set; }
     private double thresholdSpeed = 1;
@@ -21,9 +22,12 @@ public class PlayerController : MonoBehaviour {
         direction = 0;
 
         // Set trail
-        GameObject trail = Instantiate(SaveManager.Instance.playerTrails[SaveManager.Instance.state.activeTrail] as GameObject);
-        trail.transform.SetParent(rb.transform);
-        trail.transform.localPosition = Vector3.zero;
+        if (SaveManager.Instance.playerTrails[SaveManager.Instance.state.activeTrail] != null)
+        {
+            GameObject trail = Instantiate(SaveManager.Instance.playerTrails[SaveManager.Instance.state.activeTrail] as GameObject);
+            trail.transform.SetParent(rb.transform);
+            trail.transform.localPosition = Vector3.zero;
+        }
 
         // Set hat
         //TODO
@@ -63,7 +67,7 @@ public class PlayerController : MonoBehaviour {
         if (collidedWithPickup)
         {
             other.gameObject.SetActive(false);
-            lvl.PickupCollected();
+            lvl.CoinCollected();
         }
         if (reachedEndpoint) isAtEndpoint = true; else isAtEndpoint = false;
         if (enteredDeathzone) isInDeathzone = true; else isInDeathzone = false;

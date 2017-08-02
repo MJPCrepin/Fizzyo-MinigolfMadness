@@ -8,12 +8,14 @@ using UnityEngine.SceneManagement;
 public class LevelContent : MonoBehaviour {
 
     public PlayerController player;
+    public Transform homeButton;
 
     public Text currHole;
     public int currentHole = 0;
 
+    public Text totalCoinstxt;
     public Text coinstxt;
-    private int pickupCount = -1;
+    private int pickupCount = 0;
 
     public Text stroketxt;
     private int strokeCount = -1;
@@ -32,21 +34,28 @@ public class LevelContent : MonoBehaviour {
 
     public void initCounters()
     {
-        UpdatePickupCounter();
+        UpdateCoinCounter(0);
         UpdateCurrHole();
         UpdateStrokeCount();
+        UpdateTotalCoins();
     }
 
-    public void PickupCollected()
+    public void CoinCollected()
     {
-        UpdatePickupCounter();
+        UpdateCoinCounter(1);
     }
 
-    public void UpdatePickupCounter()
-    {
-        pickupCount++;
+    public void UpdateCoinCounter(int x)
+    { // Where x is the value by which the counter changes
+        pickupCount+=x;
         coinstxt.text = "Coins: " + pickupCount.ToString();
-        Debug.Log("coin added");
+        UpdateTotalCoins();
+    }
+
+    public void UpdateTotalCoins()
+    {
+        SaveManager.Instance.state.coins += pickupCount;
+        totalCoinstxt.text = "Total: " + (SaveManager.Instance.state.coins).ToString();
     }
 
     public int UpdateCurrHole()
@@ -79,6 +88,25 @@ public class LevelContent : MonoBehaviour {
         UpdateStrokeCount();
     }
 
+    public void SkipHole()
+    {
+        if (SaveManager.Instance.state.coins >= currentHole)
+        {
+            player.isSkippingHole = true;
+            StartCoroutine(ShowPopup("Skipped hole (-"+currentHole+" coins)", 1.5f));
+            UpdateCoinCounter(-currentHole);
+            UpdateCurrHole();
+            strokeCount = -1;
+            UpdateStrokeCount();
+        }
+        else
+        {
+            player.isSkippingHole = false;
+            StartCoroutine(ShowPopup("Not enough coins to skip!", 1.5f));
+        }
+        
+    }
+
     public void DisplayGolfScore()
     {
         if (strokeCount == 1)
@@ -107,10 +135,12 @@ public class LevelContent : MonoBehaviour {
         float currCountdownValue = 3f;
         while (currCountdownValue > 0)
         {
-            Debug.Log("Countdown: " + currCountdownValue);
+            ShowPopup("Returning to Main Menu");
             yield return new WaitForSeconds(1.0f);
             currCountdownValue--;
         }
+        HidePopup();
+        SaveManager.Instance.Save();
         SceneManager.LoadScene(0);
     }
 
@@ -142,5 +172,10 @@ public class LevelContent : MonoBehaviour {
     public void HidePopup()
     {
         popup.SetActive(false);
+    }
+
+    public void BackToHomePage()
+    {
+        SceneManager.LoadScene(0);
     }
 }

@@ -16,6 +16,7 @@ public class Woods : LevelContent {
     {
         DetectBreathTrigger();
         if (player.isAtEndpoint) GoToNextHole();
+        if (player.isSkippingHole) { player.isSkippingHole = false; StartCoroutine(SpawnAtNewHole(currentHole)); }
         if (player.isInDeathzone) StartCoroutine(SpawnAtNewHole(currentHole));
     }
 
