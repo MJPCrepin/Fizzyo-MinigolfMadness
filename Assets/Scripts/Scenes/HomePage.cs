@@ -125,6 +125,9 @@ public class HomePage : MonoBehaviour {
             Button b = shopItem.GetComponent<Button>();
             b.onClick.AddListener(() => OnHatSelect(currentIndex));
 
+            shopItem.GetComponentInChildren<Text>().text = "Locked";
+
+            // Change to hat screenshots as preview
             Image img = shopItem.GetComponent<Image>();
             img.color = isOwned ? Color.white : new Color(0.7f, 0.7f, 0.7f);
 
@@ -253,7 +256,7 @@ public class HomePage : MonoBehaviour {
             if (canPurchase)
             {
                 SetHat(selectedHatIndex);
-                hatScrollview.GetChild(selectedHatIndex).GetComponent<Image>().color = Color.white;
+                hatScrollview.GetChild(selectedTrailIndex).GetComponentInChildren<Text>().text = "";
                 UpdateCoinsText();
             }
             else
@@ -276,6 +279,7 @@ public class HomePage : MonoBehaviour {
             {
                 SetTrail(selectedTrailIndex);
                 trailScrollview.GetChild(selectedTrailIndex).GetComponent<Image>().color = SaveManager.Instance.playerColours[selectedTrailIndex];
+                trailScrollview.GetChild(selectedTrailIndex).GetComponentInChildren<Text>().text = "";
                 UpdateCoinsText();
             }
             else
@@ -301,6 +305,12 @@ public class HomePage : MonoBehaviour {
     {
         activeHatIndex = index;
         SaveManager.Instance.state.activeHat = index;
+
+        if(currentHat != null) Destroy(currentHat);
+        currentHat = Instantiate(SaveManager.Instance.playerHats[index] as GameObject);
+        currentHat.transform.SetParent(playerPreview.transform);
+        currentHat.transform.localPosition = Vector3.zero;
+
         hatBuySetTxt.text = "Equipped";
         SaveManager.Instance.Save();
     }

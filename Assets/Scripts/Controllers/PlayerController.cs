@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
     public float speed = 20;
     public float direction { get; set; }
     private double thresholdSpeed = 1;
-     
 
     void Start ()
     {
@@ -29,7 +28,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Set hat
-        //TODO
+        if (SaveManager.Instance.playerHats[SaveManager.Instance.state.activeHat] != null)
+        {
+            GameObject hat = Instantiate(SaveManager.Instance.playerHats[SaveManager.Instance.state.activeHat] as GameObject);
+            hat.transform.SetParent(pc.transform);
+            hat.transform.localPosition = new Vector3(0,0.5f,0);
+        }
     }
 
      void FixedUpdate()
