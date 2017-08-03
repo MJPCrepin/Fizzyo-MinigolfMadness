@@ -87,7 +87,7 @@ public class HomePage : MonoBehaviour {
             Button b = shopItem.GetComponent<Button>();
             b.onClick.AddListener(() => OnColourSelect(currentIndex));
 
-            shopItem.GetComponentInChildren<Text>().text = "Locked";
+            if (currentIndex > 0) shopItem.GetComponentInChildren<Text>().text = "Locked";
 
             Image img = shopItem.GetComponent<Image>();
             img.color = isOwned
@@ -106,7 +106,7 @@ public class HomePage : MonoBehaviour {
             Button b = shopItem.GetComponent<Button>();
             b.onClick.AddListener(() => OnTrailSelect(currentIndex));
 
-            shopItem.GetComponentInChildren<Text>().text = "Locked";
+            if (currentIndex > 0) shopItem.GetComponentInChildren<Text>().text = "Locked";
 
             Image img = shopItem.GetComponent<Image>();
             img.color = isOwned
@@ -125,9 +125,8 @@ public class HomePage : MonoBehaviour {
             Button b = shopItem.GetComponent<Button>();
             b.onClick.AddListener(() => OnHatSelect(currentIndex));
 
-            shopItem.GetComponentInChildren<Text>().text = "Locked";
+            if (currentIndex > 0) shopItem.GetComponentInChildren<Text>().text = "Locked";
 
-            // Change to hat screenshots as preview
             Image img = shopItem.GetComponent<Image>();
             img.color = isOwned ? Color.white : new Color(0.7f, 0.7f, 0.7f);
 
@@ -256,7 +255,7 @@ public class HomePage : MonoBehaviour {
             if (canPurchase)
             {
                 SetHat(selectedHatIndex);
-                hatScrollview.GetChild(selectedTrailIndex).GetComponentInChildren<Text>().text = "";
+                hatScrollview.GetChild(selectedHatIndex).GetComponentInChildren<Text>().text = "";
                 UpdateCoinsText();
             }
             else
@@ -309,6 +308,7 @@ public class HomePage : MonoBehaviour {
         if(currentHat != null) Destroy(currentHat);
         currentHat = Instantiate(SaveManager.Instance.playerHats[index] as GameObject);
         currentHat.transform.SetParent(playerPreview.transform);
+        currentHat.transform.localScale = new Vector3(1f,1f,1f);
         currentHat.transform.localPosition = Vector3.zero;
 
         hatBuySetTxt.text = "Equipped";
