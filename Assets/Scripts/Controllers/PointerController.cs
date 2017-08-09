@@ -2,10 +2,14 @@
 
 public class PointerController : MonoBehaviour {
 
+    // Controls behaviour of the direction pointer attached to player
+
     public GameObject player;
     private float speed = 0;
-    private Vector3 offset;
+    private Vector3 offset; // playerpointer distance
     public PointerController pc;
+
+    // TODO: add lerp to smoothen rotation
 
     void Start()
     {
@@ -20,23 +24,23 @@ public class PointerController : MonoBehaviour {
     }
 
     public void showAsActive()
-    {
+    { // Turn red when active
         pc.GetComponentInChildren<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
     }
 
     public void showAsInactive()
-    {
+    { // Turn yellow when inactive
         pc.GetComponentInChildren<Renderer>().material.color = new Color(255, 255, 0, 0.1f);
     }
 
     public void Rotate()
-    {
+    { // Default
         speed = 10;
     }
 
-    public void Rotate(int x)
+    public void Rotate(float x)
     {
-        speed = (float)x;
+        speed = x;
     }
 
     public void stopRotating()
@@ -51,6 +55,6 @@ public class PointerController : MonoBehaviour {
 
     public float getDirection()
     {
-        return this.transform.eulerAngles.y;
+        return transform.eulerAngles.y;
     }
 }

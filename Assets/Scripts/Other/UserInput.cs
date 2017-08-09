@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-// Designed to easily change inputs when Fizzyo package becomes available
 public static class UserInput {
+
+    // Adapter class for breath framework
+    // Designed to easily change inputs when Fizzyo package becomes available
 
     public static bool isHoldingButtonDown()
     {

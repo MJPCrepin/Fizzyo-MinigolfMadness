@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    // Specifies all player behaviours
+
+    // Object references
     public PointerController pc;
     public CameraController cc;
     public Rigidbody rb;
     public LevelContent lvl;
+
+    // Handy unity buttons for testing
     public bool isAtEndpoint = false;
     public bool isInDeathzone = false;
     public bool isSkippingHole = false;
+
+    // Vars
     public float speed = 20;
     public float direction { get; set; }
     private double thresholdSpeed = 1;
@@ -32,14 +39,15 @@ public class PlayerController : MonoBehaviour {
         {
             GameObject hat = Instantiate(SaveManager.Instance.playerHats[SaveManager.Instance.state.activeHat] as GameObject);
             hat.transform.SetParent(pc.transform);
-            hat.transform.localPosition = new Vector3(0,0.5f,0);
+            hat.transform.localPosition = new Vector3(0,0.5f,0); // Hat origin is 0,0,0 and player ball radius is 0.5
         }
     }
 
      void FixedUpdate()
     {
-        var PlayerIsMoving = rb.velocity.magnitude > thresholdSpeed;
+        var PlayerIsMoving = rb.velocity.magnitude > thresholdSpeed; // Used to limit when player can rotate
         var ValidBreathDetected = (UserInput.isExhaling() == true && UserInput.isValidBreath() == true);
+        var UserIsPressingButton = UserInput.isHoldingButtonDown();
 
         if (PlayerIsMoving)
         {
@@ -49,7 +57,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             pc.showAsActive();
-            if (UserInput.isHoldingButtonDown() == true) { pc.Rotate(); direction = pc.getDirection(); }
+            if (UserIsPressingButton) { pc.Rotate(); direction = pc.getDirection(); }
             else { pc.stopRotating(); cc.UpdateDirection(); }
         }
 
@@ -62,7 +70,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other)
-    {   // Collider+Regidbody = dynamic object (else static, recalc/frame -> resource intense!)
+    { // Handles player collisions with specific object tags
         var collidedWithPickup = other.gameObject.CompareTag("Pickup");
         var reachedEndpoint = other.gameObject.CompareTag("Finish");
         var enteredDeathzone = other.gameObject.CompareTag("Deathzone");
@@ -74,6 +82,9 @@ public class PlayerController : MonoBehaviour {
         }
         if (reachedEndpoint) isAtEndpoint = true; else isAtEndpoint = false;
         if (enteredDeathzone) isInDeathzone = true; else isInDeathzone = false;
+
+        // Note: Collider+Rigidbody = dynamic object
+        // (else static, recalc/frame -> resource intense!)
     }
 
     public void CancelMomentum()

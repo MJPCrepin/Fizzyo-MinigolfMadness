@@ -3,6 +3,8 @@ using System.IO;
 
 public static class Tools
 {
+    // Class for generic useful functions
+
     public static string Serialise<T>(this T toSerialise)
     {
         XmlSerializer xml = new XmlSerializer(typeof(T));

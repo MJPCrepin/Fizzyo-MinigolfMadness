@@ -2,6 +2,8 @@
 
 public class SaveManager : MonoBehaviour {
 
+    // Controls a SaveState
+
 	public SaveState state;
     public static SaveManager Instance { get; set; }
 
@@ -12,7 +14,7 @@ public class SaveManager : MonoBehaviour {
 
     private void Awake()
     {
-        ResetSave(); // Run once with this uncommented to reset the save file
+        // ResetSave(); // Run once with this uncommented to reset the save file
         DontDestroyOnLoad(gameObject);
         Instance = this;
         Load();
@@ -43,18 +45,20 @@ public class SaveManager : MonoBehaviour {
     }
 
     public bool IsHatOwned(int index)
-    { // If int bit is set, colour owned
+    { // If int bit is set, hat owned
         return (state.hatOwned & (1 << index)) != 0;
     }
 
     public bool IsTrailOwned(int index)
-    { // If int bit is set, colour owned
+    { // If int bit is set, trail owned
         return (state.trailOwned & (1 << index)) != 0;
     }
 
     public bool BuyColour(int index, int price)
     {
-        if (state.coins >= price)
+        var HasEnoughCoins = state.coins >= price;
+
+        if (HasEnoughCoins)
         {
             state.coins -= price;
             UnlockColour(index);
@@ -69,7 +73,9 @@ public class SaveManager : MonoBehaviour {
 
     public bool BuyHat(int index, int price)
     {
-        if (state.coins >= price)
+        var HasEnoughCoins = state.coins >= price;
+
+        if (HasEnoughCoins)
         {
             state.coins -= price;
             UnlockHat(index);
@@ -84,7 +90,9 @@ public class SaveManager : MonoBehaviour {
 
     public bool BuyTrail(int index, int price)
     {
-        if (state.coins >= price)
+        var HasEnoughCoins = state.coins >= price;
+
+        if (HasEnoughCoins)
         {
             state.coins -= price;
             UnlockTrail(index);

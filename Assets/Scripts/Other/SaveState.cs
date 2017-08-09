@@ -1,6 +1,8 @@
 ﻿public class SaveState {
 
-    public int coins = 1000;
+    // Holds player state
+
+    public int coins = 100;
     public int completedLevel = 0;
 
     public int colourOwned = 0;
