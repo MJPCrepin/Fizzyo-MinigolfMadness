@@ -1,0 +1,53 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   22.21.13.8205
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderCore-Unity5.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderCore-Unity5.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderMeshOps-Unity5.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderMeshOps-Unity5.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\KdTreeLib.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\KdTreeLib.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\pb_Stl.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\pb_Stl.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Poly2Tri.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Poly2Tri.dll into Unity Child Domain
+- Completed reload, in  0.109 seconds
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\System.dll (this message is harmless)
+desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.155060 ms
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\System.Xml.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3b68 -> priority: 1 
+  Thread -> id: 348c -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.578757 ms
+
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 1538.
+Total: 2.181529 ms (FindLiveObjects: 0.114172 ms CreateObjectMapping: 0.095999 ms MarkObjects: 1.894714 ms  DeleteObjects: 0.075851 ms)
+
+Countdown: 1.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 0.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
