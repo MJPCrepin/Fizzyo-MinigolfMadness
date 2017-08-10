@@ -2,15 +2,22 @@ Minigolf Madness
 ====
 A Unity game created by Manuel Crepin for the Fizzyo Project
 
-## Development notes
-Current project status:
+## Known bugs
+* Lighting in Woods level a bit dark
+* Trails not showing in shop preview in UWP builds
+
+## TODO
+* Change shop prices (currently all fixed at 10)
+* Unused assets under `_Imports` yet to be cleaned up
+* Add audio content
+
+## Project notes
 * `UserInput` class is an adapter class waiting for the breath framework to be finalised.
   * Currently LMB is huff and RMB is button press. IsValidBreath hardcoded to true.
 * Game mechanics and behaviours are finalised so content creation should be easy.
 * Recommended expansion/further creation of levels (see Game Info for details).
 * Item shop fully functional, could add new items (especially hats) but not crucial.
-* TODO: Unused assets under `_Imports` yet to be cleaned up.
-* TODO: Add audio content / Alternative added bonus: deaf friendly.
+* ProCore import has to be deleted for UWP builds! Will not run otherwise.
 
 ## Game Info
 * HomePage is the parent scene and also contains the level select and shop menus.
@@ -25,6 +32,7 @@ Current project status:
 * Before making a build:
   * Some imports mess with the Unity Build process (eg avoid TextMeshPro at all costs)
   * Make sure `ProCore` folder under `_Imports` is deleted when building for Windows Store.
+  * Make sure gameObjects which are cloned/instantiated are NOT ProCore objects!
 * When adding levels:
   * Existing `LevelContent` child classes (such as `Woods`) should be used as template.
   * Ensure the Unity scene has an empty LevelContent gameObject containing the child class script.

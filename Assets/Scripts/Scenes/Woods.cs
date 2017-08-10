@@ -52,7 +52,7 @@ public class Woods : LevelContent {
                 SetPar(1);
                 break;
             case 5:
-                SetNewPosition(-29.8f, 3.75f, -48f);
+                SetNewPosition(-29.8f, 3.75f, -47f);
                 SetPar(4);
                 break;
             case 6:

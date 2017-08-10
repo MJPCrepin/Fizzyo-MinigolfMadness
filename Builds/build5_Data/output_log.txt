@@ -1,0 +1,115 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics 520 (ID=0x1916)
+    Vendor:   Intel
+    VRAM:     2111 MB
+    Driver:   21.20.16.4542
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderCore-Unity5.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderCore-Unity5.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderMeshOps-Unity5.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\ProBuilderMeshOps-Unity5.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\KdTreeLib.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\KdTreeLib.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\pb_Stl.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\pb_Stl.dll into Unity Child Domain
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Poly2Tri.dll (this message is harmless)
+Loading D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\Poly2Tri.dll into Unity Child Domain
+- Completed reload, in  5.574 seconds
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\System.dll (this message is harmless)
+desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.433183 ms
+Platform assembly: D:\Projects\Unity\Minigolf Madness\Builds\build5_Data\Managed\System.Xml.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3124 -> priority: 1 
+  Thread -> id: 15ec -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 9.069424 ms
+
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 1004.
+Total: 1.363356 ms (FindLiveObjects: 0.057283 ms CreateObjectMapping: 0.059654 ms MarkObjects: 1.183999 ms  DeleteObjects: 0.061629 ms)
+
+Countdown: 1.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 0.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.902715 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 1429.
+Total: 2.011257 ms (FindLiveObjects: 0.094024 ms CreateObjectMapping: 0.061234 ms MarkObjects: 1.686912 ms  DeleteObjects: 0.167901 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.993479 ms
+
+Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 1543.
+Total: 1.419455 ms (FindLiveObjects: 0.112987 ms CreateObjectMapping: 0.084938 ms MarkObjects: 1.159110 ms  DeleteObjects: 0.061629 ms)
+
+Countdown: 1.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 0.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 1.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 0.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 1.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 0.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 1.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Countdown: 0.5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.437230 ms
+
+Unloading 104 unused Assets to reduce memory usage. Loaded Objects now: 1432.
+Total: 2.362467 ms (FindLiveObjects: 0.089283 ms CreateObjectMapping: 0.070715 ms MarkObjects: 1.764739 ms  DeleteObjects: 0.436937 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.709035 ms
+
+Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 1546.
+Total: 1.650171 ms (FindLiveObjects: 0.133530 ms CreateObjectMapping: 0.065185 ms MarkObjects: 1.374023 ms  DeleteObjects: 0.076641 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.758710 ms
+
+Unloading 104 unused Assets to reduce memory usage. Loaded Objects now: 1435.
+Total: 2.413035 ms (FindLiveObjects: 0.210567 ms CreateObjectMapping: 0.161580 ms MarkObjects: 1.705875 ms  DeleteObjects: 0.333431 ms)
+

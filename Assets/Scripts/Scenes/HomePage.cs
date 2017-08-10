@@ -336,6 +336,7 @@ public class HomePage : MonoBehaviour {
         if (currentTrail != null) Destroy(currentTrail);
         currentTrail = Instantiate(SaveManager.Instance.playerTrails[index] as GameObject);
         currentTrail.transform.SetParent(playerPreview.transform);
+        currentTrail.transform.localScale = new Vector3(1f, 1f, 1f);
         currentTrail.transform.localPosition = Vector3.zero;
 
         trailBuySetTxt.text = "Equipped";
