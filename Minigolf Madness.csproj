@@ -82,17 +82,17 @@
     <Reference Include="ProBuilderCore-Unity5">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
     </Reference>
-    <Reference Include="pb_Stl">
-      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\pb_Stl.dll</HintPath>
-    </Reference>
-    <Reference Include="Poly2Tri">
-      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\Poly2Tri.dll</HintPath>
-    </Reference>
     <Reference Include="ProBuilderMeshOps-Unity5">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="pb_Stl">
+      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\pb_Stl.dll</HintPath>
+    </Reference>
+    <Reference Include="Poly2Tri">
+      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\Poly2Tri.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\Rotators\CoinRotator.cs" />
     <Compile Include="Assets\Scripts\Rotators\EndpointRotator.cs" />
     <Compile Include="Assets\Scripts\Rotators\ObstacleRotator.cs" />
+    <Compile Include="Assets\Scripts\Rotators\PaddleRotator.cs" />
     <Compile Include="Assets\Scripts\Rotators\PickupRotator.cs" />
     <Compile Include="Assets\Scripts\Scenes\HomePage.cs" />
     <Compile Include="Assets\Scripts\Scenes\LevelContent.cs" />

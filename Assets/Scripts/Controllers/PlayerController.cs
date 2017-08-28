@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour {
         var collidedWithPickup = other.gameObject.CompareTag("Pickup");
         var reachedEndpoint = other.gameObject.CompareTag("Finish");
         var enteredDeathzone = other.gameObject.CompareTag("Deathzone");
+        var pickedUpBoost = other.gameObject.CompareTag("Boost");
 
         if (collidedWithPickup)
         {
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (reachedEndpoint) isAtEndpoint = true; else isAtEndpoint = false;
         if (enteredDeathzone) isInDeathzone = true; else isInDeathzone = false;
+        if (pickedUpBoost) rb.AddForce(333333 * rb.velocity);
 
         // Note: Collider+Rigidbody = dynamic object
         // (else static, recalc/frame -> resource intense!)
