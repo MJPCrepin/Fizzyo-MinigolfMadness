@@ -121,12 +121,6 @@
     <Reference Include="ProBuilderCore-Unity5">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
     </Reference>
-    <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="KdTreeLib">
-      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
-    </Reference>
     <Reference Include="pb_Stl">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\pb_Stl.dll</HintPath>
     </Reference>
@@ -135,6 +129,12 @@
     </Reference>
     <Reference Include="ProBuilderEditor-Unity5">
       <HintPath>Assets\_Imports\ProCore\ProBuilder\Editor\ProBuilderEditor-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="KdTreeLib">
+      <HintPath>Assets\_Imports\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
