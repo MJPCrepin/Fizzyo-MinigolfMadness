@@ -90,7 +90,15 @@ public class Woods : LevelContent {
             case 14:
                 SetNewPosition(11f, 8f, -138f);
                 SetPar(8);
-                break; //88 par here
+                break;
+            case 15:
+                SetNewPosition(74f, 0f, 12f);
+                SetPar(5);
+                break;
+            case 16:
+                SetNewPosition(79f, 9f, -125f);
+                SetPar(7);
+                break;
             default: Debug.Log("This shouldn't happen"); StartCoroutine(BackToMainMenu()); break;
         }
     }
