@@ -14,7 +14,7 @@ public class SaveManager : MonoBehaviour {
 
     private void Awake()
     {
-        // ResetSave(); // Run once with this uncommented to reset the save file
+        //ResetSave(); // Run once with this uncommented to reset the save file
         DontDestroyOnLoad(gameObject);
         Instance = this;
         Load();
