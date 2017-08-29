@@ -56,3 +56,8 @@ private void ApplicationView_Activated(CoreApplicationView sender, IActivatedEve
   * The `HomePage` script contains an array of prices, expand as necessary.
   * Colour and Trail item buttons take their colour from the SaveManager array.
   * Trails and Hats are cloned on player spawn from the SaveManager array, make sure to ref!
+  
+## Credits
+* All music/audio used is copywrite free or with permission:
+  * Menu music by Yoji Maru (https://soundcloud.com/yoji-maru/cassual-game-music)
+  * Woods audio by BerlinAtmosphere (https://youtu.be/Z9IoMarxQtY)
