@@ -3,13 +3,27 @@ Minigolf Madness
 A Unity game created by Manuel Crepin for the Fizzyo Project
 
 ## Known bugs
-* Lighting in Woods level a bit dark
 * Trails not showing in shop preview in UWP builds
+
+## Packaging builds to Windows Store format
+* Once built, App.cs and Package.appmanifest need to be edited:
+* Update the following App.cs method:
+```
+private void ApplicationView_Activated(CoreApplicationView sender, IActivatedEventArgs args)
+        {
+            CoreWindow.GetForCurrentThread().Activate();
+            if (args.Kind == ActivationKind.Protocol)
+            {
+
+                CoreWindow.GetForCurrentThread().Activate();
+            }
+        }
+```
+* In Package.appmanifest add a Protocol in Declarations and provide a name (ie: `minigolf`)
 
 ## TODO
 * Change shop prices (currently all fixed at 10)
 * Unused assets under `_Imports` yet to be cleaned up
-* Add audio content
 
 ## Project notes
 * `UserInput` class is an adapter class waiting for the breath framework to be finalised.
