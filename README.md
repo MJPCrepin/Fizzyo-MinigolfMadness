@@ -19,7 +19,7 @@ private void ApplicationView_Activated(CoreApplicationView sender, IActivatedEve
             }
         }
 ```
-* In Package.appmanifest add a Protocol in Declarations and provide a name (ie: `minigolf`)
+* In Package.appmanifest add a Protocol in Declarations and provide a name (ie: `minigolfmadness`)
 
 ## TODO
 * Change shop prices (currently all fixed at 10)
