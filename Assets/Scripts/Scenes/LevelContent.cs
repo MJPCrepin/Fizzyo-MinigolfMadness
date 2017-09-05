@@ -29,7 +29,7 @@ public class LevelContent : MonoBehaviour {
     // TODO: Check if this works correctly with Fizzyo device (increment per breath, not update)
     public void DetectBreathTrigger()
     {
-        if (UserInput.isExhaling())
+        if (UserInput.aBreathIsDetected())
             UpdateStrokeCount();
     }
 

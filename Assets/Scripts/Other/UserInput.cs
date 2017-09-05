@@ -29,4 +29,9 @@ public static class UserInput {
         // FizzyoDevice.Instance().Pressure();
     }
 
+    public static bool aBreathIsDetected()
+    { // Used to increment stroke counter in LevelContent 
+        return Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow) || isValidBreath();
+    }
+
 }
