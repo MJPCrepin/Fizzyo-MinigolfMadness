@@ -26,10 +26,10 @@ public class LevelContent : MonoBehaviour {
     public Text wintxt;
     public GameObject popup;
 
-    // TODO: Needs to be linked to breath counter once breath frameowrk ready
+    // TODO: Check if this works correctly with Fizzyo device (increment per breath, not update)
     public void DetectBreathTrigger()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (UserInput.isExhaling())
             UpdateStrokeCount();
     }
 

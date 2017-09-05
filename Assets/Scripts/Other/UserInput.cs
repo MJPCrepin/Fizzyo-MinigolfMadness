@@ -7,22 +7,26 @@ public static class UserInput {
 
     public static bool isHoldingButtonDown()
     {
-        return Input.GetMouseButton(1);
+        var validInput = (
+            Input.GetMouseButton(1) || // mouse control
+            Input.GetKeyDown("joystick button 0") || // fizzyo device control
+            Input.GetKey(KeyCode.RightArrow) ); // keyboard control
+        return validInput;
     }
 
     public static bool isExhaling()
     {
-        return Input.GetMouseButton(0);
+        var validInput = (
+            Input.GetMouseButton(0) || // mouse control
+            isValidBreath() || // fizzyo device control
+            Input.GetKey(KeyCode.UpArrow)); // keyboard control
+        return validInput;
     }
 
     public static bool isValidBreath()
-    {
-        return true;
-    }
-
-    public static int getBreathCount()
-    {
-        return 1;
+    { // Would need to know the lower and upper threshholds for a valid breath
+        return Input.GetAxisRaw("Horizontal") > 0;
+        // FizzyoDevice.Instance().Pressure();
     }
 
 }

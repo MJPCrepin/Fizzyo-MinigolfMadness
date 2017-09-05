@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour {
     }
 
      void FixedUpdate()
-    {
+     {
         var PlayerIsMoving = rb.velocity.magnitude > thresholdSpeed; // Used to limit when player can rotate
-        var ValidBreathDetected = (UserInput.isExhaling() == true && UserInput.isValidBreath() == true);
+        var ValidBreathDetected = (UserInput.isExhaling() == true);
         var UserIsPressingButton = UserInput.isHoldingButtonDown();
 
         if (PlayerIsMoving)
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour {
             var forceDirection = new Vector3(speed * (float)Math.Sin(convertedDirection), 0.0f, speed * (float)Math.Cos(convertedDirection));
             rb.AddForce(forceDirection * speed);
         }
-    }
+     }
 
     private void OnTriggerEnter(Collider other)
     { // Handles player collisions with specific object tags
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (reachedEndpoint) isAtEndpoint = true; else isAtEndpoint = false;
         if (enteredDeathzone) isInDeathzone = true; else isInDeathzone = false;
-        if (pickedUpBoost) rb.AddForce(333333 * rb.velocity);
+        if (pickedUpBoost) rb.AddForce(250000 * rb.velocity);
 
         // Note: Collider+Rigidbody = dynamic object
         // (else static, recalc/frame -> resource intense!)
