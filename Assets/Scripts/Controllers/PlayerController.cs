@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
      void FixedUpdate()
      {
         var PlayerIsMoving = rb.velocity.magnitude > thresholdSpeed; // Used to limit when player can rotate
-        var ValidBreathDetected = (UserInput.isExhaling() == true);
+        var ValidBreathDetected = UserInput.isExhaling();
         var UserIsPressingButton = UserInput.isHoldingButtonDown();
 
         if (PlayerIsMoving)

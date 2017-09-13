@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Woods : LevelContent {
 
-    // Tutorial level specific content
-
     private void Start()
     {
         initCounters();

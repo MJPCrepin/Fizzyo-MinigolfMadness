@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // Generic Level object with common values and functions
-// Each level shoud have its own child LevelContent object
+// Each level should have its own child LevelContent object
 public class LevelContent : MonoBehaviour {
 
     public PlayerController player;
@@ -26,7 +26,6 @@ public class LevelContent : MonoBehaviour {
     public Text wintxt;
     public GameObject popup;
 
-    // TODO: Check if this works correctly with Fizzyo device (increment per breath, not update)
     public void DetectBreathTrigger()
     {
         if (UserInput.aBreathIsDetected())
@@ -122,7 +121,7 @@ public class LevelContent : MonoBehaviour {
                 case -2: StartCoroutine(ShowPopup("Eagle", 1.5f)); break;
                 case -3: StartCoroutine(ShowPopup("Albatross", 1.5f)); break;
                 case -4: StartCoroutine(ShowPopup("Condor", 1.5f)); break;
-                default: break;
+                default: StartCoroutine(ShowPopup("Next hole", 1.5f)); break;
             }
         }
     }
