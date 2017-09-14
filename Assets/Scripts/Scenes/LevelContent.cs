@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Generic Level object with common values and functions
-// Each level should have its own child LevelContent object
+// Generic Level parent object with common values and functions
+// Each level should have its own child LevelContent object (eg Woods)
+
 public class LevelContent : MonoBehaviour {
 
     public PlayerController player;

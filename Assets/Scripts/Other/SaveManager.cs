@@ -105,6 +105,8 @@ public class SaveManager : MonoBehaviour {
         }
     }
 
+    // Uses bitwise operations to save unlocked status as bit flags
+
     public void UnlockColour(int index)
     { // | = toggle on, ^ = toggle off
         state.colourOwned |= 1 << index;

@@ -2,15 +2,22 @@ Minigolf Madness
 ====
 A Unity game created by Manuel Crepin (manuel@crep.in) for the Fizzyo Project
 
-## Known bugs
+## Known bugs / to do
 * Trails not showing in shop preview in UWP builds on large screens
+  * Shop has a player preview to see how they look once they buy an item
+  * User can buy hats, colours (for the balls) and trails (temporarily highlight path)
+  * On large screens, trail not seen (probably due to camera angle), fine for target device
 * All shop buttons init with "Locked" text (even if previously unlocked)
-
-## TODO
-* Change shop prices (currently all fixed at 10)
-* Unused assets under `_Imports` yet to be cleaned up
-* Disallow skipping holes if no coins left (make local copy of savestate amount)
-* Fix bugs
+  * Need to check unlock state per item THEN set button text to Locked if it isn't unlocked
+* Change shop prices (currently all fixed at 10), balance with amount of coins per level
+* Unused assets under `_Imports` yet to be cleaned up (mostly ubused 3d assets)
+* Disallow skipping holes if no coins left
+  * make local copy of savestate coin amount, or simply save after each skip
+* Save level unlock states (progression)
+  * Add savestate int and saveManager bitwise function
+  * Call unlock function when last hole of a level reached
+  * Update menu buttons accordingly
+* User suggestion: add Accessories shop category? (eg moustache, balloon, etc)
 
 ## Installing the included test build
 * Locate build folder under "UWP Install"
@@ -24,6 +31,39 @@ A Unity game created by Manuel Crepin (manuel@crep.in) for the Fizzyo Project
   * New physio game design for dummies? -> LEMONS Poster
   * Anything else/further details -> LEMONS - A framework... (thesis)
 * Keep on reading for a TL;DR of the above.
+
+## Directory structure
+```
+Assets (contains Unity project assets)
+|
++- _Imports (all 3d models and tools imported)
+|
++- Audio (copyright music used)
+|
++- Prefabs (collection of items used as templates)
+|   |
+|   +- Hats (all hat prefabs)
+|   |
+|   +- Map (obstacles/coins/course sections/endpoints/etc)
+|   |
+|   +- Trails (the trail prefabs)
+|
++- Scenes (The Unity scenes)
+|
++- Scripts (All the code used in the game)
+|	|
+|	+- Controllers (player/camera/preview/pointer behaviours)
+|	|
+|	+- Rotators  (scripts fr rotating coins/obstacles/etc)
+|	|
+|	+- Scenes (the behaviour scripts for scenes, and the parent LevelContent file)
+|	|
+|	+- Other (saving functions, tools, user input adapter class)
+|
++- Visuals (all image/texture/material assets)
+
+```
+
 
 ## Packaging new builds to Windows Store format
 * Once built, App.cs and Package.appmanifest need to be edited:

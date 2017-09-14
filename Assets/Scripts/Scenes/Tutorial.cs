@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Tutorial : LevelContent {
 
-    // Tutorial level specific content
+    // Tutorial level-specific content
 
     private bool preventRotation = false;
 

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class HomePage : MonoBehaviour {
 
+    // Class controlling all Home menu functions (including level select and shop)
+
     // Visual menu objects
     public RectTransform menuContainer;
     public Transform levelPanel;
