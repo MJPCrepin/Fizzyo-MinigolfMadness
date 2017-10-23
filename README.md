@@ -38,7 +38,7 @@ Assets (contains Unity project assets)
 |
 +- _Imports (all 3d models and tools imported)
 |
-+- Audio (copyright music used)
++- Audio (copyright free music used)
 |
 +- Prefabs (collection of items used as templates)
 |   |
